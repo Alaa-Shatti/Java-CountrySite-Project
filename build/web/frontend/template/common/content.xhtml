@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body>
+        <ui:composition>
+            <br/><br/><br/>
+            <div style="margin: 10px;float:  left ; height: 100%;width: 40%  ">
+
+                <div><b> <font color="black"> <h3>Oblast</h3></font> </b> <hr/>
+                    <ui:repeat  value="#{oblast.oblastList}" var="ob" >
+                        <hr/>
+                        <div >
+                            <b> #{ob.ob_name}</b>
+                            <div >
+                                <font color="red" >
+                                    #{ob.ob_population}
+                                </font>
+
+                            </div>
+                        </div>
+                    </ui:repeat>
+                    #{oblast.page}
+                    <div class="btn btn-group">
+                        <h:commandButton rendered="#{oblast.hasPrev()}" action="#{oblast.previous()}" value="privious" styleClass="btn btn-danger"></h:commandButton>
+                        <h:commandButton rendered="#{oblast.hasNext()}" action="#{oblast.next()}" value="next" styleClass="btn btn-primary">
+                        </h:commandButton>
+                    </div>
+
+                </div>
+                <hr/><hr/>
+            </div>
+
+
+            <div style="margin: 10px; float:  right ; height: 100%;width: 50% "   >
+
+                <div     ><b> <font color="black"> <h3>Activities</h3></font> </b> <hr/>
+                    <ui:repeat  value="#{activity.activityList}" var="act" >
+                        <hr/>
+                        <div >
+                            <b> #{act.date}</b>
+                            <div >
+                                <font color="red" >
+                                    #{act.activity_species}
+                                </font>
+
+                            </div>
+                        </div>
+                    </ui:repeat>
+                        #{activity.page}
+
+                        <div class="btn btn-group">
+                            <h:commandButton rendered="#{activity.hasPrev()}" action="#{activity.previous()}" value="privious" styleClass="btn btn-danger"></h:commandButton>
+                            <h:commandButton rendered="#{activity.hasNext()}" action="#{activity.next()}" value="next" styleClass="btn btn-primary">
+                            </h:commandButton>
+                        </div>
+                </div>
+                <hr/><hr/>
+            </div>
+
+
+
+
+            <br/><br/>	
+        </ui:composition>
+    </body>
+</html>

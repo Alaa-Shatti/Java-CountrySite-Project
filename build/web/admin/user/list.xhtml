@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <h:commandLink action="#{user.createForm}" value="NEW USER"></h:commandLink>
+                    <hr />
+                    <h:dataTable value="#{user.userList}" var="us" styleClass="table table-stripped">
+                        <h:column>
+                            <f:facet name="header">ID</f:facet>
+                                #{us.user_id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">USER NAME</f:facet>
+                                #{us.user_name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">PASSWORD</f:facet>
+                                #{us.password}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">POI</f:facet>
+                                #{us.poi.poi_name}
+                        </h:column>                        
+                        <h:column>
+                            <f:facet name="header">GROUP</f:facet>
+                                #{us.group.group_name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">ADMINISTRATION</f:facet>
+                            <h:commandButton action="#{user.updateForm(us)}" value="EDIT" styleClass="btn btn-primary"></h:commandButton>
+                            <h:commandButton action="#{user.delete(us)}" value="DELETE" styleClass="btn btn-danger"></h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

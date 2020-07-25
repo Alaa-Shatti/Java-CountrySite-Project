@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <body>
+
+        <ui:composition>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h:commandLink action="#{country.start}" value="START PAGE"></h:commandLink>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <h:commandLink action="/admin/country/list?faces-redirect=true" value="COUNTRY"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/oblast/list?faces-redirect=true" value="OBLAST"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/county/list?faces-redirect=true" value="COUNTY"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/poi/list?faces-redirect=true" value="POI"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/poiType/list?faces-redirect=true" value="POI-TYPE"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/groups/list?faces-redirect=true" value="GROUPS"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/comments/list?faces-redirect=true" value="COMMENTS"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/user/list?faces-redirect=true" value="USERS"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/activities/list?faces-redirect=true" value="ACTIVITIES"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/file/file?faces-redirect=true" value="FILE"/>
+                            </li>
+                             <li>
+                                <h:commandLink action="/admin/community/list?faces-redirect=true" value="COMMUNITY"/>
+                            </li>
+                            <li>
+                                <h:commandLink action="/admin/privileges/list?faces-redirect=true" value="PRIVILEGES"/>
+                            </li>
+
+                            
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                           <li>
+                                <h:commandLink action="#{loginController.Logout}" value="LOGOUT"/>
+                            </li> 
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </ui:composition>
+    </body>
+</html>

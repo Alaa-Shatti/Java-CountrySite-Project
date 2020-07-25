@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <p>
+                        <label for="selectCountry">POI</label>
+                        <h:selectOneMenu styleClass="custom-select" id="selectCountry" value="#{user.users.poi}" converter="poiConverter">
+                            <f:selectItems  value="#{user.poiList}" var="po" itemValue="#{po}" itemLabel="#{po.poi_name}"/>
+                        </h:selectOneMenu>
+                    </p>
+                    <p>
+                        <label for="selectGroup">Group</label>
+                        <h:selectOneMenu  styleClass="custom-select" id="selectGroup" value="#{user.users.group}" converter="groupConverter">
+                            <f:selectItems  value="#{user.grList}" var="gr" itemValue="#{gr}" itemLabel="#{gr.group_name}"/>
+                        </h:selectOneMenu>>
+                    </p>
+                    <div class="form-group">
+                        <label for="parent">USER NAME</label>
+                        <h:inputText class="form-control" value="#{user.users.user_name}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="parent">PASSWORD</label>
+                        <h:inputText id="pass" required="true" requiredMessage="This fild is Required" validator="#{user.validatePass}" class="form-control" value="#{user.users.password}" />
+                        <h:message for="pass" styleClass="text-danger" /> 
+
+                    </div>
+                    <p>
+                        <h:commandButton value="CREATE" action="#{user.create}" styleClass="btn btn-primary"/>
+                    </p>
+                    <p>
+                        <h:commandButton value="Back" action="#{user.back}" styleClass="btn btn-link"/>
+                    </p>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

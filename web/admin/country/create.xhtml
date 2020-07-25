@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <div class="form-group">
+                        <label for="parent">COUNTRY</label>
+                        <h:inputText class="form-control" value="#{country.country.coun_name}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="parent">POPULATION</label>
+                        <h:inputText class="form-control" value="#{country.country.coun_population}" />
+                    </div>
+                    <p>
+                        <h:commandButton value="CREATE" action="#{country.create}" styleClass="btn btn-primary"/>
+                    </p>
+                    <p>
+                        <h:commandButton value="Back" action="#{country.back}" styleClass="btn btn-link" />
+                    </p>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

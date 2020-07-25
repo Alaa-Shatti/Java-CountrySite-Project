@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/admin/template/layout.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <h:commandLink action="#{oblast.createForm}" value="NEW OBLAST"></h:commandLink>
+                    <hr />
+                    <h:dataTable value="#{oblast.oblastList}" var="ob" styleClass="table table-stripped">
+                        <h:column>
+                            <f:facet name="header">ID</f:facet>
+                                #{ob.ob_id}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">OBLAST NAME</f:facet>
+                                #{ob.ob_name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">OBLAST POPULATION</f:facet>
+                                #{ob.ob_population}
+                        </h:column>
+                         <h:column>
+                            <f:facet name="header">COUNTRY NAME</f:facet>
+                                #{ob.country.coun_name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">ADMINISTRATION</f:facet>
+                            <h:commandButton action="#{oblast.updateForm(ob)}" value="EDIT" styleClass="btn btn-primary"></h:commandButton>
+                            <h:commandButton action="#{oblast.delete(ob)}" value="DELETE" styleClass="btn btn-danger"></h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                    #{oblast.page}
+                    <div class="btn btn-group">
+                        <h:commandButton rendered="#{oblast.hasPrev()}" action="#{oblast.previous()}" value="privious" styleClass="btn btn-danger"></h:commandButton>
+                        <h:commandButton rendered="#{oblast.hasNext()}" action="#{oblast.next()}" value="next" styleClass="btn btn-primary"></h:commandButton>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
